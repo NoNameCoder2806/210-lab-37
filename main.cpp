@@ -13,16 +13,16 @@ using namespace std;
 const string DATA_FILE = "data.txt";
 
 // Function prototypes
-int sum_ascii(string str);
+int gen_hash_index(string str);
 
 // Main function
 int main()
 {
     // Create a map
-    map<int, list<string>> hashTable;
+    map<int, list<string>> hash_table;
 
-    // Create an int variable to store the sum
-    int sum = 0;
+    // Create an int variable to store the key
+    int key = 0;
 
     // Create string variables
     string dataFile = DATA_FILE;           // Store the data file's path
@@ -36,25 +36,22 @@ int main()
     while (getline(fin, line))
     {
         // Add the sum of the line
-        sum += sum_ascii(line);
+        key += gen_hash_index(line);
     }
-
-    // Output results
-    cout << "sum: " << sum << endl;
 
     return 0;
 }
 
 // Function implementations
 /*
-    sum_ascii()
+    gen_hash_index()
     Calculate the sum of all the characters in a string based on the ASCII table
     Arguments:
         - str: the string whose characters' ASCII sum values we need to calculate
     Return:
         - an integer representing the sum of that string's character's ASCII values
 */
-int sum_ascii(string str)
+int gen_hash_index(string str)
 {
     // Create an integer variable to store the sum
     int sum = 0;
