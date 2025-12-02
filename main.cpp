@@ -21,6 +21,10 @@ void displayEntries(const map<int, list<string>>& hash_table);
 void searchKey(const map<int, list<string>>& hash_table);
 void addKey(map<int, list<string>>& hash_table);
 void removeKey(map<int, list<string>>& hash_table);
+void modifyKey(map<int, list<string>>& hash_table);
+void addCode();
+void changeCode();
+void removeCode();
 
 // Main function
 int main()
@@ -390,4 +394,11 @@ void removeKey(map<int, list<string>>& hash_table)
         // Display a message
         cout << "Key " << key << " does not exist!" << endl;
     }
+}
+
+/*
+*/
+void modifyKey()
+{
+    // 
 }
