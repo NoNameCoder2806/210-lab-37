@@ -18,6 +18,7 @@ const int MAX_CHOICE = 6;
 void displayMenu();
 int gen_hash_index(string str);
 void displayEntries(const map<int, list<string>>& hash_table);
+void searchKey(const map<int, list<string>>& hash_table)
 
 // Main function
 int main()
@@ -249,4 +250,33 @@ void displayEntries(const map<int, list<string>>& hash_table)
 
     // Enter a new line
     cout << endl;
+}
+
+/*
+    searchKey()
+    Search for a key in the map and display the total number of elements in the bucket
+    Arguments:
+        - hash_table: the hash table whose entries we are displaying
+    Return: none
+*/
+void searchKey(const map<int, list<string>>& hash_table)
+{
+    // Display a message
+    cout << " --- Searching for a key --- " << endl;
+
+    // Create a variable to store the key
+    int key = 0;
+
+    // Prompt the user to enter the key to search for
+    cout << "Please enter the key you want to search for: ";
+    cin >> key;
+
+    // Create an iterator and use it to find the key
+    auto it = hash_table.find(key);
+
+    // Check whether the key exist by comparing the iterator to the end of the map
+    if (it != hash_table.end())
+    {
+        
+    }
 }
