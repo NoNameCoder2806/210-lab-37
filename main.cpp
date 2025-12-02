@@ -117,6 +117,7 @@ int main()
             case 5:
             {
                 // Call the modifyKey() function
+                modifyKey(hash_table);
 
                 // Break
                 break;
@@ -396,6 +397,9 @@ void removeKey(map<int, list<string>>& hash_table)
 /*
     modifyKey()
     Allows the user to modify the list of the key
+    Arguments:
+        - hash_table: the hash table whose key we want to modify
+    Return: none
 */
 void modifyKey(map<int, list<string>>& hash_table)
 {
@@ -424,12 +428,23 @@ void modifyKey(map<int, list<string>>& hash_table)
         auto it2 = hash_table.find(newKey);
         if (it2 != hash_table.end())
         {
-
+            // If the key exists, we display a message and do nothing
+            cout << "The new key " << newKey << " already exists!" << endl;
         }
-        hash_table.erase(key);
+        else
+        {
+            // Otherwise, we copy the bucket
+            list<string> newList = it->second;
 
-        // Display a message
-        cout << "Removed key " << key << " from the hash table!" << endl;
+            // Then we erase the old key
+            hash_table.erase(key);
+
+            // And finally, we insert the new key
+            hash_table.insert(make_pair(newKey, newList));
+
+            // Display a message
+            cout << "Key " << key << " is changed to " << newKey << "!" << endl;
+        }
     }
     else          // Otherwise, we do nothing
     {
