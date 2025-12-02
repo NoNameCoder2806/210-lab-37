@@ -11,6 +11,7 @@ using namespace std;
 
 // Constants
 const string DATA_FILE = "data.txt";
+const int MODULO = 97;
 
 // Function prototypes
 int gen_hash_index(string str);
@@ -35,8 +36,11 @@ int main()
     // Create a loop and read all the lines in the data file 
     while (getline(fin, line))
     {
-        // Add the sum of the line 
-        key += gen_hash_index(line);
+        // Get the hash key
+        key = gen_hash_index(line);
+
+        // Insert the data into the map
+        
     }
 
     return 0;
@@ -64,5 +68,5 @@ int gen_hash_index(string str)
     }
 
     // Return the sum value
-    return sum;
+    return sum & MODULO;
 }
