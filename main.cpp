@@ -11,8 +11,11 @@ using namespace std;
 
 // Constants
 const string DATA_FILE = "data.txt";
+const int MIN_CHOICE = 1;
+const int MAX_CHOICE = 6;
 
 // Function prototypes
+void displayMenu();
 int gen_hash_index(string str);
 
 // Main function
@@ -22,8 +25,9 @@ int main()
     map<int, list<string>> hash_table;
 
     // Create int variables
-    int key = 0;            // The key of the value
-    int count = 0;          // The number of data lines read
+    int key = 0;             // The key of the value
+    int count = 0;           // The number of data lines read
+    int choice = 0;          // The user's choice
 
     // Create string variables
     string dataFile = DATA_FILE;           // Store the data file's path
@@ -41,6 +45,28 @@ int main()
 
         // Insert the data into the map
         hash_table[key].push_front(line);
+    }
+
+    // Implement a loop
+    while (true)
+    {
+        // Display the menu of operations
+        displayMenu();
+
+        // Prompt the user to enter their choice
+        cout << "Please enter your choice: ";
+        cin >> choice;
+
+        // Validate the choice input
+        while (choice < MIN_CHOICE || choice > MAX_CHOICE)
+        {
+            // Prompt the user to enter a valid choice
+            cout << "Error! Please enter a valid choice (1-6): ";
+            cin >> choice;
+        }
+
+        // Perform the operation based on the user's choice
+        
     }
 
     // Display a header
@@ -101,6 +127,29 @@ int main()
 }
 
 // Function implementations
+/*
+    displayMenu()
+    Display a menu of operations
+    Arguments: none
+    Return: none
+*/
+void displayMenu()
+{
+    // Display a header
+    cout << " ------- Operations Menu ------- " << endl;
+
+    // Display all the operations
+    cout << "1. Display the first 100 entries" << endl;
+    cout << "2. Search for a key" << endl;
+    cout << "3. Add a key" << endl;
+    cout << "4. Remove a key" << endl;
+    cout << "5. Modify a key" << endl;
+    cout << "6. Exit" << endl;
+
+    // Display a separator
+    cout << " ------------------------------- " << endl;
+}
+
 /*
     gen_hash_index()
     Calculate the sum of all the characters in a string based on the ASCII table
