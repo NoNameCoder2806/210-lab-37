@@ -5,6 +5,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <list>
+#include <map>
 using namespace std;
 
 // Constants
@@ -16,6 +18,9 @@ int sum_ascii(string str);
 // Main function
 int main()
 {
+    // Create a map
+    map<int, list<string>> hashTable;
+
     // Create an int variable to store the sum
     int sum = 0;
 
