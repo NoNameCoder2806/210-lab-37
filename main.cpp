@@ -40,7 +40,16 @@ int main()
         key = gen_hash_index(line);
 
         // Insert the data into the map
-        
+        hash_table[key].push_front(line);
+    }
+
+    // Create a counter to keep track of the number of elements
+    int count = 0;
+
+    // Display the first 100 elements of the map
+    for (auto pair : hash_table)
+    {
+
     }
 
     return 0;
@@ -67,6 +76,6 @@ int gen_hash_index(string str)
         sum += (int) str.at(i);
     }
 
-    // Return the sum value
-    return sum & MODULO;
+    // Return the sum value mod 97 (return the hash key)
+    return sum % MODULO;
 }
