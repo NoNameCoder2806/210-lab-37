@@ -18,7 +18,7 @@ const int MAX_CHOICE = 6;
 void displayMenu();
 int gen_hash_index(string str);
 void displayEntries(const map<int, list<string>>& hash_table);
-void searchKey(const map<int, list<string>>& hash_table)
+void searchKey(const map<int, list<string>>& hash_table);
 
 // Main function
 int main()
@@ -84,6 +84,7 @@ int main()
             case 2:
             {
                 // Call the searchKey() function
+                searchKey(hash_table);
 
                 // Break;
                 break;
@@ -275,8 +276,24 @@ void searchKey(const map<int, list<string>>& hash_table)
     auto it = hash_table.find(key);
 
     // Check whether the key exist by comparing the iterator to the end of the map
+    // Explanation: if iterator points to the end of the map, then the key doesn't exist
     if (it != hash_table.end())
     {
-        
+        // Check for the size of the list
+        if (it->second.size() != 0)
+        {
+            // Display a message
+            cout << "Key found! Total number of strings: " << it->second.size() << endl;
+        }
+        else          // Otherwise, if the list has no string
+        {
+            // Display a message
+            cout << "Key found! Bucket is currently empty!" << endl;
+        }
+    }
+    else          // Otherwise, the key does not exist
+    {
+        // Display a message
+        cout << "Key not found!" << endl;
     }
 }
