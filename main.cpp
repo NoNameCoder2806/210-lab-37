@@ -329,7 +329,13 @@ void addKey(map<int, list<string>>& hash_table)
     }
     else          // Otherwise, we insert the key
     {
+        // Create an empty string list
+        list<string> tempList;
+
         // Insert the key into the table
-        hash_table.insert(key);
+        hash_table.insert(make_pair(key, tempList));
+
+        // Display a message
+        cout << "Added key " << key << " to the hash table!" << endl;
     }
 }
