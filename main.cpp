@@ -66,7 +66,63 @@ int main()
         }
 
         // Perform the operation based on the user's choice
-        
+        switch (choice)
+        {
+            // Display the first 100 entries
+            case 1:
+            {
+                // Case 1: Call the displayEntries() function
+                
+                // Break
+                break;
+            }
+
+            // Case 2: Search for a key
+            case 2:
+            {
+                // Call the searchKey() function
+
+                // Break;
+                break;
+            }
+
+            // Case 3: Add a key
+            case 3:
+            {
+                // Call the addKey() function
+
+                // Break;
+                break;
+            }
+
+            // Case 4: Remove a key
+            case 4:
+            {
+                // Call the removeKey() function
+
+                // Break;
+                break;
+            }
+
+            // Case 5: Modify a key
+            case 5:
+            {
+                // Call the modifyKey() function
+
+                // Break
+                break;
+            }
+
+            // Case 6: Exit
+            case 6:
+            {
+                // Display a message
+                cout << "Thank you for using this program! Exiting..." << endl;
+
+                // Break
+                break;
+            }
+        }
     }
 
     // Display a header
