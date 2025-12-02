@@ -49,7 +49,26 @@ int main()
     // Display the first 100 elements of the map
     for (auto pair : hash_table)
     {
+        // Only display 100 elements
+        if (count >= 100)
+        {
+            break;
+        }
 
+        // Display the key
+        cout << pair.first << ": ";
+        
+        // Display the bucket list
+        cout << "[";
+        for (auto value : pair.second)
+        {
+            // Display the value
+            cout << value << " ";
+        }
+        cout << "]" << endl;
+        
+        // Increment the count
+        count++;
     }
 
     return 0;
